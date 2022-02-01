@@ -1,0 +1,270 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <main class="building">
+        <section class="room" id="anchor1">
+            <div class="room-walls container-fluid">
+                <h1 class="room-text">карнизы</h1>
+                 <div class="carousel carousel-dark">
+                    <figure>
+                        {% for el in cornice %}
+                            <div>
+                                <label>
+                                    <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#cornice{{ el.id }}" aria-expanded="false" name="one-{{ el.id }}" value="{{ el.price }}">
+                                    <img src="{{ el.foto.url }}">
+                                </label>
+                                <div class="collapse" id="cornice{{ el.id }}">
+                                    <div class="card card-body flex">
+                                        <form class="w-50 align-self-center">
+                                            <div>
+                                                <input class="form-control form-control-sm text-center my-3" name="corn-{{ el.id }}" placeholder="пог.м" value="1">
+                                                <fieldset disabled><input type="text" name="corn-out{{ el.id }}" class="form-control form-control-sm text-center mb-3" aria-label="disabled" value="{{ el.price }} BYN"></fieldset>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </figure>
+                    <nav>
+                        <button class="carousel-control-prev" type="button">
+                            <span class="carousel-control-prev-icon prev" aria-hidden="true"></span>
+                            <span class="visually-hidden">Prev</span>
+                        </button>
+                        <button class="carousel-control-next" type="button">
+                            <span class="carousel-control-next-icon next" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </section>
+        <section class="room" id="anchor2">
+            <div class="room-walls container-fluid">
+                <h1 class="room-text">профиль</h1>
+                <div class="carousel carousel-dark">
+                    <figure>
+                        {% for el in profile %}
+                            <div>
+                                <label>
+                                    <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#profile{{ el.id }}" aria-expanded="false" name="two-{{ el.id }}" value="{{ el.price }}">
+                                    <img src="{{ el.foto.url }}" alt=""/>
+                                </label>
+                                <div class="collapse" id="profile{{ el.id }}">
+                                    <div class="card card-body flex">
+                                        <form class="w-50 align-self-center">
+                                            <div>
+                                                <input type="number" class="form-control form-control-sm text-center my-3" name="prof-{{ el.id }}" placeholder="пог.м" min="1" value="1">
+                                                <fieldset disabled><input type="text" name="prof-out{{ el.id }}" class="form-control form-control-sm text-center mb-3" aria-label="disabled" value="{{ el.price }} BYN"></fieldset>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </figure>
+                    <nav>
+                        <button class="carousel-control-prev" type="button">
+                            <span class="carousel-control-prev-icon prev" aria-hidden="true"></span>
+                            <span class="visually-hidden">Prev</span>
+                        </button>
+                        <button class="carousel-control-next" type="button">
+                            <span class="carousel-control-next-icon next" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </section>
+        <section class="room" id="anchor3">
+            <div class="room-walls container-fluid" id="content-tab">
+                <h1 class="room-text">оcвещение</h1>
+                <div class="light-menu">
+                    <nav class="tabs">
+                        <div class="selector"></div>
+                        <a name="tab1" class="active"><i class="fab fa-superpowers"></i>люстры</a>
+                        <a name="tab2"><i class="fab fa-hubspot"></i>треки и споты</a>
+                        <a name="tab3"><i class="far fa-lightbulb"></i>свет и точечные</a>
+                        <a name="tab4"><i class="fas fa-solar-panel"></i>LED-панели</a>
+                        <a name="tab5"><i class="fas fa-adjust"></i>LED-ленты</a>
+                    </nav>
+                </div>
+                <div class="carousel carousel-dark" id="tab1">
+                    <figure>
+                        {% for el in light %}
+                            {% if el.type_light == 'CHANDELIER' %}
+                                <div>
+                                    <label>
+                                        <input type="checkbox" name="three" value="{{ el.price }}">
+                                        <img src="{{ el.foto.url }}" alt=""/>
+                                    </label>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </figure>
+                    <nav>
+                        <button class="carousel-control-prev" type="button">
+                            <span class="carousel-control-prev-icon prev" aria-hidden="true"></span>
+                            <span class="visually-hidden">Prev</span>
+                        </button>
+                        <button class="carousel-control-next" type="button">
+                            <span class="carousel-control-next-icon next" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </nav>
+                </div>
+                <div class="carousel carousel-dark" id="tab2">
+                    <figure>
+                        {% for el in light %}
+                            {% if el.type_light == 'TRACK_AND_SPOT' %}
+                                <div>
+                                    <label>
+                                        <input type="checkbox" name="three" value="{{ el.price }}">
+                                        <img src="{{ el.foto.url }}" alt=""/>
+                                    </label>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </figure>
+                    <nav>
+                        <button class="carousel-control-prev" type="button">
+                            <span class="carousel-control-prev-icon prev" aria-hidden="true"></span>
+                            <span class="visually-hidden">Prev</span>
+                        </button>
+                        <button class="carousel-control-next" type="button">
+                            <span class="carousel-control-next-icon next" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </nav>
+                </div>
+                <div class="carousel carousel-dark" id="tab3">
+                    <figure>
+                        {% for el in light %}
+                            {% if el.type_light == 'LEDLAMP_AND_POINT' %}
+                                <div>
+                                    <label>
+                                        <input type="checkbox" name="three" value="{{ el.price }}">
+                                        <img src="{{ el.foto.url }}" alt=""/>
+                                    </label>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </figure>
+                    <nav>
+                        <button class="carousel-control-prev" type="button">
+                            <span class="carousel-control-prev-icon prev" aria-hidden="true"></span>
+                            <span class="visually-hidden">Prev</span>
+                        </button>
+                        <button class="carousel-control-next" type="button">
+                            <span class="carousel-control-next-icon next" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </nav>
+                </div>
+                <div class="carousel carousel-dark" id="tab4">
+                    <figure>
+                        {% for el in light %}
+                            {% if el.type_light == 'LEDPANEL' %}
+                                <div>
+                                    <label>
+                                        <input type="checkbox" name="three" value="{{ el.price }}">
+                                        <img src="{{ el.foto.url }}" alt=""/>
+                                    </label>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </figure>
+                    <nav>
+                        <button class="carousel-control-prev" type="button">
+                            <span class="carousel-control-prev-icon prev" aria-hidden="true"></span>
+                            <span class="visually-hidden">Prev</span>
+                        </button>
+                        <button class="carousel-control-next" type="button">
+                            <span class="carousel-control-next-icon next" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </nav>
+                </div>
+                <div class="carousel carousel-dark" id="tab5">
+                    <figure>
+                        {% for el in light %}
+                            {% if el.type_light == 'LED_STRIP_LIGHT' %}
+                                <div>
+                                    <label>
+                                        <input type="checkbox" name="three" value="{{ el.price }}">
+                                        <img src="{{ el.foto.url }}" alt=""/>
+                                    </label>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </figure>
+                    <nav>
+                        <button class="carousel-control-prev" type="button">
+                            <span class="carousel-control-prev-icon prev" aria-hidden="true"></span>
+                            <span class="visually-hidden">Prev</span>
+                        </button>
+                        <button class="carousel-control-next" type="button">
+                            <span class="carousel-control-next-icon next" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </section>
+        <section class="room">
+            <div class="container-fluid room-walls">
+                <form>
+                    <div class="row justify-content-center">
+                        <!--<label for="cornice-val" class="col-4 py-3 form-label">Карниз</label>
+                        <div class="col-3 py-3">
+                            <fieldset disabled>
+                                <input type="text" class="form-control form-control-sm text-center" id="cornice-val" value="0">
+                            </fieldset>
+                        </div>
+                        <div class="col-2 py-3">
+                            <input type="text" class="form-control form-control-sm text-center" placeholder="м.п.">
+                        </div> -->
+                    </div>
+                    <div class="row justify-content-center">
+                        <label for="profile-val" class="col-4 mb-3 form-label">Профиль</label>
+                        <div class="col-3 mb-3">
+                            <fieldset disabled>
+                                <input type="text" class="form-control form-control-sm text-center" id="profile-val" value="0">
+                            </fieldset>
+                        </div>
+                        <div class="col-2 mb-3">
+                            <input type="text" class="form-control form-control-sm text-center" placeholder="м.п.">
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <label for="light-val" class="col-4 mb-3 form-label">Освещение</label>
+                        <div class="col-3 mb-3">
+                            <fieldset disabled>
+                                <input type="text" class="form-control form-control-sm text-center" id="light-val" value="0">
+                            </fieldset>
+                        </div>
+                        <div class="col-2 mb-3">
+                            <input type="text" class="form-control form-control-sm text-center" placeholder="шт.">
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <label for="light-val" class="col-4 mb-3 form-label">Итоговая</label>
+                        <div class="col-3 mb-3">
+                            <fieldset disabled>
+                                <input type="text" class="form-control form-control-sm text-center" id="total" value="0">
+                            </fieldset>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script>var csrftoken = '{{ csrf_token }}';</script>
+    <script src="{% static 'main/js/carousel.js' %}"></script>
+    <script src="{% static 'main/js/check_img.js' %}"></script>
+    <script src="{% static 'main/js/tabs.js' %}"></script>
+{% endblock %}
