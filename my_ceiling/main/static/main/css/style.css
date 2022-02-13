@@ -15,79 +15,6 @@ body {
 
 /* Header */
 
-/* Cap */
-
-.cap-left {
-    display: flex;
-    justify-content: right;
-}
-
-.cap-right {
-    display: flex;
-    justify-content: left;
-
-
-}
-
-.cap h1 {
-    position: absolute;
-    font: 900 120px/1 'Source Sans Pro', Arial, sans-serif;
-    font-size: 6em;
-    color: #fff;
-    text-shadow:    0 1px 0 hsl(174,5%,80%),
-                    0 2px 0 hsl(174,5%,75%),
-                    0 3px 0 hsl(174,5%,70%),
-                    0 4px 0 hsl(174,5%,66%),
-                    0 5px 0 hsl(174,5%,64%),
-                    0 6px 0 hsl(174,5%,62%),
-                    0 7px 0 hsl(174,5%,61%),
-                    0 8px 0 hsl(174,5%,60%),
-
-                    0 0 5px rgba(0,0,0,.05),
-                    0 1px 3px rgba(0,0,0,.2),
-                    0 3px 5px rgba(0,0,0,.2),
-                    0 5px 10px rgba(0,0,0,.2),
-                    0 10px 10px rgba(0,0,0,.2),
-                    0 20px 20px rgba(0,0,0,.3);
-}
-
-.cap h1:nth-child(1) {
-    color: #212529;
-    text-shadow:    0 1px 0 hsl(210, 11%, 2%),
-                    0 2px 0 hsl(210, 11%, 3%),
-                    0 3px 0 hsl(210, 11%, 6%),
-                    0 4px 0 hsl(210, 11%, 8%),
-                    0 5px 0 hsl(210, 11%, 11%),
-                    0 6px 0 hsl(210, 11%, 14%),
-                    0 7px 0 hsl(210, 11%, 17%),
-                    0 8px 0 hsl(210, 11% , 20%),
-
-                    0 0 5px rgba(0,0,0,.05),
-                    0 1px 3px rgba(0,0,0,.2),
-                    0 3px 5px rgba(0,0,0,.2),
-                    0 5px 10px rgba(0,0,0,.2),
-                    0 10px 10px rgba(0,0,0,.2),
-                    0 20px 20px rgba(0,0,0,.3);
-}
-
-.cap-img {
-    margin-top: 0.4rem;
-    width: 390px;
-    height: 93px;
-    background-color: #e16c1d;
-    border-top-right-radius: 5%;
-    border-top-left-radius: 5%;
-    border-bottom-right-radius: 5%;
-    border-bottom-left-radius: 5%;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 1),
-                -23px 0 20px -23px rgba(0, 0, 0, .8),
-                23px 0 20px -23px rgba(0, 0, 0, .8),
-                0 0 40px rgba(0, 0, 0, .1);
-}
-
-/* end Cap */
-/* end Header */
-
 /* navbar */
 .navbar {
     background: transparent;
@@ -135,6 +62,8 @@ body {
 
 /* end Navbar */
 
+/* end Header */
+
 /*calculator */
 
 .modal-header {
@@ -152,7 +81,6 @@ body {
 .modal-open {
     overflow-y: auto !important;
 }
-
 
 /* end calculator */
 
@@ -397,9 +325,13 @@ body {
 .carousel figure img {
     height: 200px;
     width: 350px;
-    border: 10px solid;
-    border-radius: 10px;;
+    border: 5px solid;
+    border-radius: 10px;
 
+}
+
+.green {
+    border-color: #3c8855 !important;
 }
 
 .carousel figure div {
@@ -431,9 +363,6 @@ body {
 label > input { /* HIDE RADIO */
     visibility: hidden; /* Makes input not-clickable */
     position: absolute; /* Remove input from document flow */
-
-    /*width: 350px;
-    height: 100%;*/
 }
 
 label > input + img { /* IMAGE STYLES */
@@ -442,8 +371,18 @@ label > input + img { /* IMAGE STYLES */
 }
 
 label > input:checked + img { /* (RADIO CHECKED) IMAGE STYLES */
-    border: 5px solid #1F75FE;
+    border: 5px solid #1F75FE !important;
 }
+
+.input-group {
+    border: 3px solid #1F75FE;
+    border-radius: 5px;
+}
+
+.input-group .form-control {
+    width: 6vw !important;
+}
+
 
 /* end Carousel */
 
@@ -454,6 +393,7 @@ label > input:checked + img { /* (RADIO CHECKED) IMAGE STYLES */
     text-align: center;
     /* room settings wrapper */
     position: absolute;
+    z-index: 100;
     transform: translatez(calc(var(--depth)));
     top: 12%;
 }
@@ -529,16 +469,47 @@ label > input:checked + img { /* (RADIO CHECKED) IMAGE STYLES */
     border-radius: 0 5px 5px 5px;
     box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
 }
+/* shopping cart */
 
-/*.room-walls form {
+.shopping-cart {
     position: absolute;
-    top: 20%;
-    background: rgba(255, 255, 255, 0.1);
+    top: 12%;
+    width: 50%;
+    background: #EBECF0;
     border-radius: 6px;
     box-shadow: 0 5px 35px rgba(0,0,0,0.2);
     transform: translatez(calc(var(--depth)));
+    max-height: 250px;
+    overflow-y: auto;
+}
 
-}*/
+.shopping-cart .table thead {
+  position: sticky;
+  background: #EBECF0;
+  top: 0;
+}
+
+.shopping-cart .table tfoot{
+    position: sticky;
+    bottom: 0;
+    background: #EBECF0;
+}
+
+.fa-trash {
+    color: #ff0000;
+}
+
+.shopping-cart .table img {
+    width: 3.5rem;
+    height: 2.5rem;
+}
+
+
+
+
+
+
+/* end shopping-cart */
 
 /* end Index */
 

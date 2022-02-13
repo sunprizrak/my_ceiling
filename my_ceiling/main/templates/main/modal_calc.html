@@ -1,0 +1,54 @@
+{% load static %}
+<div class="modal fade" id="collapseCalc" tabindex="-1" aria-labelledby="calcModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+         <form>
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <h5 class="modal-title" id="calcModalLabel">Расчёт освещённости помещения для светодиодного освещения</h5>
+                     <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+                 </div>
+                 <div class="modal-body">
+                     <div class="col-5 mb-3">
+                         <label class="form-label" for="S">Площадь комнаты M<sup><small>2</small></sup></label>
+                         <input type="number" class="form-control text-center" id="S" value="0" min="0">
+                     </div>
+                     <div class="col-auto mb-3">
+                        <label class="form-label" for="K">Высота потолка</label>
+                            <select class="form-select" id="K">
+                            <option selected>Выбрать</option>
+                            <option value="1">до 2.7м</option>
+                            <option value="1.2">от 2.7м до 3м</option>
+                            <option value="1.5">от 3м до 3.5м</option>
+                            <option value="2">от 3.5м до 4.5м</option>
+                        </select>
+                     </div>
+                     <div class="col-auto mb-3">
+                         <label class="form-label" for="type">Тип помещения</label>
+                         <select class="form-select" id="type">
+                             <option selected>Выбрать</option>
+                             <option value="230">Подсобные помещения, кладовая</option>
+                             <option value="150">Жилая комната, кухня</option>
+                             <option value="200">Детская комната</option>
+                             <option value="300">Ванная комната, санузел, квартирные коридоры и холлы</option>
+                             <option value="350">Гардеробная</option>
+                             <option value="200">Кабинет</option>
+                         </select>
+                     </div>
+                 </div>
+                 <div class="modal-footer flex justify-content-center">
+                     <div class="row">
+                         <div class="col-6">
+                            <button type="button" class="btn btn-primary">Рассчитать</button>
+                         </div>
+                         <div class="col-6">
+                             <fieldset disabled>
+                                 <input type="text" id="disabledTextInput" class="form-control text-center" placeholder="0">
+                             </fieldset>
+                        </div>
+                     </div>
+                </div>
+             </div>
+        </form>
+     </div>
+</div>
+<script src="{% static 'main/js/modal_button.js' %}"></script>

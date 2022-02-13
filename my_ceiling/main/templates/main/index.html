@@ -1,30 +1,27 @@
 {% extends 'main/layout.html' %}
 {% load static %}
 
-
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
     <main class="building">
-        <section class="room" id="anchor1">
+        <section class="room">
             <div class="room-walls container-fluid">
-                <h1 class="room-text">карнизы</h1>
+                <h1 class="room-text" id="anchor1">карнизы</h1>
                  <div class="carousel carousel-dark">
                     <figure>
                         {% for el in cornice %}
                             <div>
                                 <label>
-                                    <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#cornice{{ el.id }}" aria-expanded="false" name="one-{{ el.id }}" value="{{ el.price }}">
-                                    <img src="{{ el.foto.url }}">
+                                    <input type="checkbox" data-bs-toggle="collapse" role="button" data-bs-target="#cornice{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
+                                    <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}">
                                 </label>
                                 <div class="collapse" id="cornice{{ el.id }}">
-                                    <div class="card card-body flex">
-                                        <form class="w-50 align-self-center">
-                                            <div>
-                                                <input class="form-control form-control-sm text-center my-3" name="corn-{{ el.id }}" placeholder="пог.м" value="1">
-                                                <fieldset disabled><input type="text" name="corn-out{{ el.id }}" class="form-control form-control-sm text-center mb-3" aria-label="disabled" value="{{ el.price }} BYN"></fieldset>
-                                            </div>
-                                        </form>
+                                    <div class="input-group input-group-sm mt-2">
+                                        <span class="input-group-text">пог.м</span>
+                                        <input type="number" class="form-control text-center" name="clg-{{ el.id }}" min="1" max="100" value="1">
+                                        <span class="input-group-text" id="clg-out{{ el.id }}">{{ el.price }} BYN</span>
+                                        <button class="btn btn-success" type="button" name="add-{{ el.id }}">add to card</button>
                                     </div>
                                 </div>
                             </div>
@@ -43,25 +40,23 @@
                 </div>
             </div>
         </section>
-        <section class="room" id="anchor2">
+        <section class="room">
             <div class="room-walls container-fluid">
-                <h1 class="room-text">профиль</h1>
+                <h1 class="room-text" id="anchor2">профиль</h1>
                 <div class="carousel carousel-dark">
                     <figure>
                         {% for el in profile %}
                             <div>
                                 <label>
-                                    <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#profile{{ el.id }}" aria-expanded="false" name="two-{{ el.id }}" value="{{ el.price }}">
-                                    <img src="{{ el.foto.url }}" alt=""/>
+                                    <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#profile{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
+                                    <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}" alt=""/>
                                 </label>
                                 <div class="collapse" id="profile{{ el.id }}">
-                                    <div class="card card-body flex">
-                                        <form class="w-50 align-self-center">
-                                            <div>
-                                                <input type="number" class="form-control form-control-sm text-center my-3" name="prof-{{ el.id }}" placeholder="пог.м" min="1" value="1">
-                                                <fieldset disabled><input type="text" name="prof-out{{ el.id }}" class="form-control form-control-sm text-center mb-3" aria-label="disabled" value="{{ el.price }} BYN"></fieldset>
-                                            </div>
-                                        </form>
+                                    <div class="input-group input-group-sm mt-2">
+                                        <span class="input-group-text">пог.м</span>
+                                        <input type="number" class="form-control text-center" name="clg-{{ el.id }}" min="1" max="100" value="1">
+                                        <span class="input-group-text" id="clg-out{{ el.id }}">{{ el.price }} BYN</span>
+                                        <button class="btn btn-success" type="button" name="add-{{ el.id }}">add to card</button>
                                     </div>
                                 </div>
                             </div>
@@ -80,9 +75,9 @@
                 </div>
             </div>
         </section>
-        <section class="room" id="anchor3">
+        <section class="room">
             <div class="room-walls container-fluid" id="content-tab">
-                <h1 class="room-text">оcвещение</h1>
+                <h1 class="room-text" id="anchor3">оcвещение</h1>
                 <div class="light-menu">
                     <nav class="tabs">
                         <div class="selector"></div>
@@ -99,9 +94,17 @@
                             {% if el.type_light == 'CHANDELIER' %}
                                 <div>
                                     <label>
-                                        <input type="checkbox" name="three" value="{{ el.price }}">
-                                        <img src="{{ el.foto.url }}" alt=""/>
+                                        <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#chandelier{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
+                                        <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}" alt=""/>
                                     </label>
+                                    <div class="collapse" id="chandelier{{ el.id }}">
+                                        <div class="input-group input-group-sm mt-2">
+                                            <span class="input-group-text">штук</span>
+                                            <input type="number" class="form-control text-center" name="clg-{{ el.id }}" min="1" max="100" value="1">
+                                            <span class="input-group-text" id="clg-out{{ el.id }}">{{ el.price }} BYN</span>
+                                            <button class="btn btn-success" type="button" name="add-{{ el.id }}">add to card</button>
+                                        </div>
+                                    </div>
                                 </div>
                             {% endif %}
                         {% endfor %}
@@ -123,9 +126,17 @@
                             {% if el.type_light == 'TRACK_AND_SPOT' %}
                                 <div>
                                     <label>
-                                        <input type="checkbox" name="three" value="{{ el.price }}">
-                                        <img src="{{ el.foto.url }}" alt=""/>
+                                        <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#track-and-spot{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
+                                        <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}" alt=""/>
                                     </label>
+                                    <div class="collapse" id="track-and-spot{{ el.id }}">
+                                        <div class="input-group input-group-sm mt-2">
+                                            <span class="input-group-text">штук</span>
+                                            <input type="number" class="form-control text-center" name="clg-{{ el.id }}" min="1" max="100" value="1">
+                                            <span class="input-group-text" id="clg-out{{ el.id }}">{{ el.price }} BYN</span>
+                                            <button class="btn btn-success" type="button" name="add-{{ el.id }}">add to card</button>
+                                        </div>
+                                    </div>
                                 </div>
                             {% endif %}
                         {% endfor %}
@@ -147,9 +158,17 @@
                             {% if el.type_light == 'LEDLAMP_AND_POINT' %}
                                 <div>
                                     <label>
-                                        <input type="checkbox" name="three" value="{{ el.price }}">
-                                        <img src="{{ el.foto.url }}" alt=""/>
+                                        <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#ledlamp-and-point{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
+                                        <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}" alt=""/>
                                     </label>
+                                    <div class="collapse" id="ledlamp-and-point{{ el.id }}">
+                                        <div class="input-group input-group-sm mt-2">
+                                            <span class="input-group-text">штук</span>
+                                            <input type="number" class="form-control text-center" name="clg-{{ el.id }}" min="1" max="100" value="1">
+                                            <span class="input-group-text" id="clg-out{{ el.id }}">{{ el.price }} BYN</span>
+                                            <button class="btn btn-success" type="button" name="add-{{ el.id }}">add to card</button>
+                                        </div>
+                                    </div>
                                 </div>
                             {% endif %}
                         {% endfor %}
@@ -171,9 +190,17 @@
                             {% if el.type_light == 'LEDPANEL' %}
                                 <div>
                                     <label>
-                                        <input type="checkbox" name="three" value="{{ el.price }}">
-                                        <img src="{{ el.foto.url }}" alt=""/>
+                                        <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#ledpanel{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
+                                        <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}" alt=""/>
                                     </label>
+                                    <div class="collapse" id="ledpanel{{ el.id }}">
+                                        <div class="input-group input-group-sm mt-2">
+                                            <span class="input-group-text">штук</span>
+                                            <input type="number" class="form-control text-center" name="clg-{{ el.id }}" min="1" max="100" value="1">
+                                            <span class="input-group-text" id="clg-out{{ el.id }}">{{ el.price }} BYN</span>
+                                            <button class="btn btn-success" type="button" name="add-{{ el.id }}">add to card</button>
+                                        </div>
+                                    </div>
                                 </div>
                             {% endif %}
                         {% endfor %}
@@ -195,9 +222,17 @@
                             {% if el.type_light == 'LED_STRIP_LIGHT' %}
                                 <div>
                                     <label>
-                                        <input type="checkbox" name="three" value="{{ el.price }}">
-                                        <img src="{{ el.foto.url }}" alt=""/>
+                                        <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#led-strip-light{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
+                                        <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}" alt=""/>
                                     </label>
+                                    <div class="collapse" id="led-strip-light{{ el.id }}">
+                                        <div class="input-group input-group-sm mt-2">
+                                            <span class="input-group-text">штук</span>
+                                            <input type="number" class="form-control text-center" name="clg-{{ el.id }}" min="1" max="100" value="1">
+                                            <span class="input-group-text" id="clg-out{{ el.id }}">{{ el.price }} BYN</span>
+                                            <button class="btn btn-success" type="button" name="add-{{ el.id }}">add to card</button>
+                                        </div>
+                                    </div>
                                 </div>
                             {% endif %}
                         {% endfor %}
@@ -217,54 +252,52 @@
         </section>
         <section class="room">
             <div class="container-fluid room-walls">
-                <form>
-                    <div class="row justify-content-center">
-                        <!--<label for="cornice-val" class="col-4 py-3 form-label">Карниз</label>
-                        <div class="col-3 py-3">
-                            <fieldset disabled>
-                                <input type="text" class="form-control form-control-sm text-center" id="cornice-val" value="0">
-                            </fieldset>
-                        </div>
-                        <div class="col-2 py-3">
-                            <input type="text" class="form-control form-control-sm text-center" placeholder="м.п.">
-                        </div> -->
-                    </div>
-                    <div class="row justify-content-center">
-                        <label for="profile-val" class="col-4 mb-3 form-label">Профиль</label>
-                        <div class="col-3 mb-3">
-                            <fieldset disabled>
-                                <input type="text" class="form-control form-control-sm text-center" id="profile-val" value="0">
-                            </fieldset>
-                        </div>
-                        <div class="col-2 mb-3">
-                            <input type="text" class="form-control form-control-sm text-center" placeholder="м.п.">
-                        </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <label for="light-val" class="col-4 mb-3 form-label">Освещение</label>
-                        <div class="col-3 mb-3">
-                            <fieldset disabled>
-                                <input type="text" class="form-control form-control-sm text-center" id="light-val" value="0">
-                            </fieldset>
-                        </div>
-                        <div class="col-2 mb-3">
-                            <input type="text" class="form-control form-control-sm text-center" placeholder="шт.">
-                        </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <label for="light-val" class="col-4 mb-3 form-label">Итоговая</label>
-                        <div class="col-3 mb-3">
-                            <fieldset disabled>
-                                <input type="text" class="form-control form-control-sm text-center" id="total" value="0">
-                            </fieldset>
-                        </div>
-                    </div>
-                </form>
+                <h1 class="room-text" id="anchor4">корзина</h1>
+                <div class="shopping-cart">
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <th scope="col">Image</th>
+                                <th scope="col">Product</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Remove</th>
+                                <th scope="col">Unit price</th>
+                                <th scope="col">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in cart %}
+                                {% with product=item.product %}
+                                    <tr id="tr{{ product.id }}">
+                                        <td>
+                                            <img class="img-fluid" src="{{ product.foto.url }}">
+                                        </td>
+                                        <td>name</td>
+                                        <td>{{ item.quantity }}</td>
+                                        <td><a type="button" name="remove-{{ product.id }}"><i class="fas fa-trash"></i></a></td>
+                                        <td>{{ item.price }} BYN</td>
+                                        <td>{{ item.total_price }} BYN</td>
+                                    </tr>
+                                {% endwith %}
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th scope="col">Total</th>
+                                <th scope="col" colspan="4"></th>
+                                <th scope="col" id="tfoot-total">{{ cart.get_total_price }} BYN</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
         </section>
     </main>
-    <script>var csrftoken = '{{ csrf_token }}';</script>
+    <script>
+        let csrftoken = '{{ csrf_token }}'; let url = "{% url 'home' %}";
+    </script>
+    <script src="{% static 'main/js/shopping-cart.js' %}"></script>
     <script src="{% static 'main/js/carousel.js' %}"></script>
-    <script src="{% static 'main/js/check_img.js' %}"></script>
+    <script src="{% static 'main/js/check_price.js' %}"></script>
     <script src="{% static 'main/js/tabs.js' %}"></script>
 {% endblock %}
