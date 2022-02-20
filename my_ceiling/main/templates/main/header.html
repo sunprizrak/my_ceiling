@@ -1,28 +1,40 @@
+{% load static %}
 <header id="header">
+    <div class="cap-text">MY CEILING</div>
     <nav class="navbar navbar-expand-xl navbar-dark">
-        <div id="navbar" class="container">
-            <a id="nav-brand" class="navbar-brand px-3" href="{% url 'home' %}">XXX</a>
+        <div id="navbar" class="container-fluid">
+            <a id="nav-brand" class="navbar-brand px-5" href="{% url 'home' %}">- натяжные потолки -</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
+                        <a class="nav-link" href="#" data-scroll="anchor1">карнизы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-scroll="anchor2">профиль</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-scroll="anchor3">освещение</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-scroll="anchor5">контакты</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="modal" data-bs-target="#collapseCalc" role="button" aria-expanded="false" aria-controls="collapseExample">
                             калькулятор
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link anchor" href="#anchor1">карнизы</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link anchor" href="#anchor2">профиль</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link anchor" href="#anchor3">освещение</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link anchor" href="#anchor4">корзина</a>
+                    <li class="nav-item" id="shop-cart">
+                        <a class="nav-link anchor position-relative " href="#" data-scroll="anchor4">
+                            <i class="bi bi-cart3"></i>
+                            {% if cart.get_quantity_products > 0 %}
+                                <span id="sh-span-num" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-info">
+                                    {{ cart.get_quantity_products }}
+                                </span>
+                            {% endif %}
+                        </a>
                     </li>
                     <li class="li-mob-menu d-block d-xl-none">
                         <ul class="ul-mob-menu">

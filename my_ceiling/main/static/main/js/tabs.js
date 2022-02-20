@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function(){
     let tabs = $('.tabs');
     let selector = $('.tabs').find('a').length;
     let activeItem = tabs.find('.active');
@@ -13,6 +13,8 @@ $(document).ready(function() {
 
     $(".tabs").on("click","a",function(e) {
         e.preventDefault();
+        const audio = new Audio('static/main/audio/click_mouse.mp3');
+        audio.play();
         if ($(this).attr('class') == 'active') {
             return;
         }

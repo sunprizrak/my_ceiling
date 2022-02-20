@@ -4,6 +4,7 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
+    <!--suppress XmlDuplicatedId -->
     <main class="building">
         <section class="room">
             <div class="room-walls container-fluid">
@@ -15,6 +16,11 @@
                                 <label>
                                     <input type="checkbox" data-bs-toggle="collapse" role="button" data-bs-target="#cornice{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
                                     <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}">
+                                    <div class="it-ok" id="it-ok{{ el.id }}">
+                                        <svg viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M 18 32.34 l -8.34 -8.34 -2.83 2.83 11.17 11.17 24 -24 -2.83 -2.83 z" stroke="#3da35a" fill="transparent"/>
+                                        </svg>
+                                    </div>
                                 </label>
                                 <div class="collapse" id="cornice{{ el.id }}">
                                     <div class="input-group input-group-sm mt-2">
@@ -50,6 +56,11 @@
                                 <label>
                                     <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#profile{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
                                     <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}" alt=""/>
+                                    <div class="it-ok" id="it-ok{{ el.id }}">
+                                        <svg viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M 18 32.34 l -8.34 -8.34 -2.83 2.83 11.17 11.17 24 -24 -2.83 -2.83 z" stroke="#3da35a" fill="transparent"/>
+                                        </svg>
+                                    </div>
                                 </label>
                                 <div class="collapse" id="profile{{ el.id }}">
                                     <div class="input-group input-group-sm mt-2">
@@ -96,6 +107,11 @@
                                     <label>
                                         <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#chandelier{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
                                         <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}" alt=""/>
+                                        <div class="it-ok" id="it-ok{{ el.id }}">
+                                            <svg viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M 18 32.34 l -8.34 -8.34 -2.83 2.83 11.17 11.17 24 -24 -2.83 -2.83 z" stroke="#3da35a" fill="transparent"/>
+                                            </svg>
+                                        </div>
                                     </label>
                                     <div class="collapse" id="chandelier{{ el.id }}">
                                         <div class="input-group input-group-sm mt-2">
@@ -128,6 +144,11 @@
                                     <label>
                                         <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#track-and-spot{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
                                         <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}" alt=""/>
+                                        <div class="it-ok" id="it-ok{{ el.id }}">
+                                            <svg viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M 18 32.34 l -8.34 -8.34 -2.83 2.83 11.17 11.17 24 -24 -2.83 -2.83 z" stroke="#3da35a" fill="transparent"/>
+                                            </svg>
+                                        </div>
                                     </label>
                                     <div class="collapse" id="track-and-spot{{ el.id }}">
                                         <div class="input-group input-group-sm mt-2">
@@ -160,6 +181,11 @@
                                     <label>
                                         <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#ledlamp-and-point{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
                                         <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}" alt=""/>
+                                        <div class="it-ok" id="it-ok{{ el.id }}">
+                                            <svg viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M 18 32.34 l -8.34 -8.34 -2.83 2.83 11.17 11.17 24 -24 -2.83 -2.83 z" stroke="#3da35a" fill="transparent"/>
+                                            </svg>
+                                        </div>
                                     </label>
                                     <div class="collapse" id="ledlamp-and-point{{ el.id }}">
                                         <div class="input-group input-group-sm mt-2">
@@ -192,6 +218,11 @@
                                     <label>
                                         <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#ledpanel{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
                                         <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}" alt=""/>
+                                        <div class="it-ok" id="it-ok{{ el.id }}">
+                                            <svg viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M 18 32.34 l -8.34 -8.34 -2.83 2.83 11.17 11.17 24 -24 -2.83 -2.83 z" stroke="#3da35a" fill="transparent"/>
+                                            </svg>
+                                        </div>
                                     </label>
                                     <div class="collapse" id="ledpanel{{ el.id }}">
                                         <div class="input-group input-group-sm mt-2">
@@ -224,6 +255,11 @@
                                     <label>
                                         <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#led-strip-light{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
                                         <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}" alt=""/>
+                                        <div class="it-ok" id="it-ok{{ el.id }}">
+                                            <svg viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M 18 32.34 l -8.34 -8.34 -2.83 2.83 11.17 11.17 24 -24 -2.83 -2.83 z" stroke="#3da35a" fill="transparent"/>
+                                            </svg>
+                                        </div>
                                     </label>
                                     <div class="collapse" id="led-strip-light{{ el.id }}">
                                         <div class="input-group input-group-sm mt-2">
@@ -257,47 +293,65 @@
                     <table class="table table-borderless">
                         <thead>
                             <tr>
-                                <th scope="col">Image</th>
-                                <th scope="col">Product</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Remove</th>
-                                <th scope="col">Unit price</th>
-                                <th scope="col">Price</th>
+                                <th scope="col" class="text-center">Фото</th>
+                                <th scope="col" class="text-center">Название</th>
+                                <th scope="col" class="text-center">Колличество</th>
+                                <th scope="col" class="text-center">Удалить</th>
+                                <th scope="col" class="text-center">Цена</th>
+                                <th scope="col" class="text-center">Всего</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for item in cart %}
                                 {% with product=item.product %}
                                     <tr id="tr{{ product.id }}">
-                                        <td>
+                                        <td class="text-center">
                                             <img class="img-fluid" src="{{ product.foto.url }}">
                                         </td>
-                                        <td>name</td>
-                                        <td>{{ item.quantity }}</td>
-                                        <td><a type="button" name="remove-{{ product.id }}"><i class="fas fa-trash"></i></a></td>
-                                        <td>{{ item.price }} BYN</td>
-                                        <td>{{ item.total_price }} BYN</td>
+                                        <td class="text-center">name</td>
+                                        <td class="text-center">{{ item.quantity }}</td>
+                                        <td class="text-center"><a type="button" name="remove-{{ product.id }}"><i class="fas fa-trash"></i></a></td>
+                                        <td class="text-center">{{ item.price }} BYN</td>
+                                        <td class="text-center">{{ item.total_price }} BYN</td>
                                     </tr>
                                 {% endwith %}
                             {% endfor %}
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th scope="col">Total</th>
-                                <th scope="col" colspan="4"></th>
-                                <th scope="col" id="tfoot-total">{{ cart.get_total_price }} BYN</th>
+                                <th scope="col">Всего:</th>
+                                <th scope="col" colspan="2" id="tfoot-total">{{ cart.get_total_price }} BYN</th>
+                                <th scope="col" colspan="2"></th>
+                                <th scope="col"><button type="button" class="btn btn-primary">Primary</button></th>
                             </tr>
                         </tfoot>
                     </table>
                 </div>
+                <div class="social-links">
+                    <ul>
+                      <li>
+                        <a href="tel:+375257046972">
+                          <i class="fas fa-mobile"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="viber://chat?number=%2B375257046972">
+                          <i class="fab fa-viber"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://t.me/Myceiling" target="_blank">
+                          <i class="fab fa-telegram-plane"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.instagram.com/my.ceiling" target="_blank">
+                          <i class="fab fa-instagram"></i>
+                        </a>
+                      </li>
+                    </ul>
+                </div>
             </div>
         </section>
     </main>
-    <script>
-        let csrftoken = '{{ csrf_token }}'; let url = "{% url 'home' %}";
-    </script>
-    <script src="{% static 'main/js/shopping-cart.js' %}"></script>
-    <script src="{% static 'main/js/carousel.js' %}"></script>
-    <script src="{% static 'main/js/check_price.js' %}"></script>
-    <script src="{% static 'main/js/tabs.js' %}"></script>
 {% endblock %}

@@ -37,6 +37,8 @@ function carousel(root) {
         nav.addEventListener("click", onClick, true);
         function onClick(e) {
             e.stopPropagation();
+            const audio = new Audio('static/main/audio/carousel_scroll.mp3');
+            audio.play();
             let t = e.target;
             if (t.tagName.toUpperCase() != "SPAN") return;
             if (t.classList.contains("next")) {

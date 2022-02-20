@@ -1,5 +1,6 @@
 $(function() {
-    $(".modal-footer button").click(function() {
+    $(".modal-footer").on('click', 'button', function(e) {
+        e.preventDefault();
         let area = $("#S").val();
         let height = $("#K").val();
         let type_space = $("#type").val();
