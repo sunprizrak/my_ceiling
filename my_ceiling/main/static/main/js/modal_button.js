@@ -11,7 +11,6 @@ $(function() {
             $(".modal-footer input").val(Math.round(result) + ' Вт');
         }
     });
-
 });
 
 

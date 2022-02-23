@@ -112,6 +112,11 @@ body::-webkit-scrollbar-track {
     color: #EC6811 !important;
 }
 
+.navbar-nav .nav-item .nav-link:active {
+    transform: translateY(2px);
+}
+
+
 #nav-item .toggler {
     border: 1px solid transparent;
     background-color: transparent;
@@ -258,7 +263,7 @@ body::-webkit-scrollbar-track {
 	background:
 		linear-gradient(to top, hsl(0 0% 75%) 1.5vh, transparent 0),
 		radial-gradient(hsl(0 0% 100% / 10%), hsl(0 0% 0% / 10%)),
-		url('../img/room-middle-straight.jpg') center / 92rem,
+		url('../img/room-middle-straight.jpg') center / 103rem,
 		gray;
 	transform: translatez(calc(var(--depth) * -1));
 	transform-style: preserve-3d;
@@ -365,7 +370,7 @@ body::-webkit-scrollbar-track {
     width: 100%;
     height: 100%;
     -webkit-perspective: 500px;
-    perspective: 500px;
+    perspective: 680px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -405,6 +410,7 @@ body::-webkit-scrollbar-track {
     padding: 0;
 }
 
+
 .carousel figure div:not(:first-of-type),
 .carousel figure img:not(:first-of-type) {
     position: absolute;
@@ -422,9 +428,16 @@ body::-webkit-scrollbar-track {
 
 .carousel-control-prev,
 .carousel-control-next {
-    width: 5vh !important;
-    top: 44% !important;
-    height: 5vh;
+    width: 4vw !important;
+    top: 48% !important;
+    height: 4vh;
+}
+
+.carousel-control-prev:active > img,
+.carousel-control-next:active > img {
+    transform: translateY(2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
 }
 
 label > input { /* HIDE RADIO */
@@ -448,7 +461,6 @@ label > input:checked + img { /* (RADIO CHECKED) IMAGE STYLES */
     top: 0;
     height: 200px;
     width: 350px;
-
 }
 
 .carousel .it-ok svg {
@@ -505,6 +517,16 @@ label > input:checked + img { /* (RADIO CHECKED) IMAGE STYLES */
     width: 6vw !important;
 }
 
+.carousel hr {
+    visibility: hidden;
+    height: 10px !important;
+    margin: 83px !important;
+    border-radius: 50%;
+}
+
+.active-hr {
+    visibility: visible !important;
+}
 
 /* end Carousel */
 
