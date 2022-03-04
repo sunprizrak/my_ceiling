@@ -15,6 +15,8 @@ function add_product() {
         }
         $('.carousel input[name=box-' + product_id + ']').click();
         $('.carousel img[name=img-' + product_id + ']').addClass('green');
+        $('.carousel input[name=clg-' + product_id + ']').val(1);
+        $('.carousel span[id=clg-out' + product_id + ']').text($('.carousel input[name=box-' + product_id + ']').val() + ' BYN');
         $.ajax({
             headers: {
                 'X-CSRFToken': csrftoken,
@@ -76,11 +78,56 @@ function check_price() {
     });
 }
 
+function to_back_button() {
+    $('.shopping-cart tfoot tr').on('click', 'button', function() {
+        if ($('.shopping-cart-back').hasClass('turn-front')) {
+            $('.shopping-cart-back').removeClass('turn-front');
+        }
+        $('.shopping-cart').addClass('turn-back');
+        $('.shopping-cart-back').addClass('see');
+    });
+}
+
+function to_front_button() {
+    $('.shopping-cart-back form').on('click', 'button[name=back]', function() {
+        $('.shopping-cart-back').removeClass('see');
+        $('.shopping-cart-back').addClass('turn-front');
+        $('.shopping-cart').removeClass('turn-back');
+    });
+}
+
+function send_order_to_email() {
+    $('.shopping-cart-back form').on('submit', function() {
+        $.ajax({
+            headers: {
+                'X-CSRFToken': csrftoken,
+            },
+            type: 'POST',
+            data: {
+                'name': 'order',
+                'form': $(this).serializeArray(),
+            },
+            success: function() {
+                $('#shop-cart').load(url + ' #shop-cart a');
+                $('.carousel img[name*=img]').removeClass('green');
+                $('.shopping-cart .table').remove();
+                $('.shopping-cart').load(url + ' .shopping-cart .table', function() {
+                    to_back_button();
+                });
+                $('.shopping-cart-back form button[name=back]').click();
+            },
+        });
+        return false;
+    });
+}
 
 $(function() {
     check_price();
     add_product();
     remove_product();
+    to_back_button();
+    to_front_button();
+    send_order_to_email();
 });
 
 

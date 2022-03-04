@@ -6,8 +6,12 @@ def path_foto(instance, filename):
 
 
 class CeilingModel(models.Model):
-    price = models.DecimalField('Цена', max_digits=8, decimal_places=2, default=0)
+    name = models.CharField('Наименование', max_length=50, default='нет наименования')
     foto = models.ImageField('Фото', upload_to=path_foto)
+    price = models.DecimalField('Цена', max_digits=8, decimal_places=2, default=0)
+
+    def __str__(self):
+        return self.name
 
 
 class CorniceModel(CeilingModel):
@@ -34,7 +38,7 @@ class LightModel(CeilingModel):
 
     class Meta:
         verbose_name = 'Освещение'
-        verbose_name_plural = 'Освещения'
+        verbose_name_plural = 'Освещение'
 
 
 class ProfileModel(CeilingModel):

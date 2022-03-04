@@ -18,7 +18,8 @@ class Cart(object):
         """
         product_id = str(product.id)
         if product_id not in self.cart:
-            self.cart[product_id] = {'quantity': 0,
+            self.cart[product_id] = {'name': product.name,
+                                     'quantity': 0,
                                      'price': str(product.price)}
         if update_quantity:
             self.cart[product_id]['quantity'] = quantity
@@ -75,6 +76,16 @@ class Cart(object):
         """
         return sum(Decimal(item['price']) * item['quantity'] for item in
                    self.cart.values())
+
+    def get_order_for_email(self):
+        message = ''
+        for item in self.cart.values():
+            item['total_price'] = str(Decimal(item['price']) * item['quantity'])
+        count = (el for el in range(1, len(self.cart.values())+1))
+        for el in self.cart.values():
+            message += f'{next(count)}. <{el["name"]} {el["quantity"]}шт. {el["price"]}BYN => {el["total_price"]}BYN>\n'
+        message += f'Общая стоимость заказа: {self.get_total_price()}BYN\n'
+        return message
 
     def clear(self):
         # удаление корзины из сессии

@@ -8,7 +8,7 @@
     <main class="building">
         <section class="room">
             <div class="room-walls container-fluid">
-                <h1 class="room-text" id="anchor1">карнизы</h1>
+                <h1 class="room-title" id="anchor1">карнизы</h1>
                  <div class="carousel carousel-dark">
                     <figure>
                         {% for el in cornice %}
@@ -49,7 +49,7 @@
         </section>
         <section class="room">
             <div class="room-walls container-fluid">
-                <h1 class="room-text" id="anchor2">профиль</h1>
+                <h1 class="room-title" id="anchor2">профиль</h1>
                 <div class="carousel carousel-dark">
                     <figure>
                         {% for el in profile %}
@@ -90,7 +90,7 @@
         </section>
         <section class="room">
             <div class="room-walls container-fluid" id="content-tab">
-                <h1 class="room-text" id="anchor3">оcвещение</h1>
+                <h1 class="room-title" id="anchor3">оcвещение</h1>
                 <div class="light-menu">
                     <nav class="tabs">
                         <div class="selector"></div>
@@ -295,46 +295,62 @@
         </section>
         <section class="room">
             <div class="container-fluid room-walls">
-                <h1 class="room-text" id="anchor4">корзина</h1>
-                <div class="shopping-cart">
-                    <table class="table table-borderless">
-                        <thead>
-                            <tr>
-                                <th scope="col" class="text-center">Фото</th>
-                                <th scope="col" class="text-center">Название</th>
-                                <th scope="col" class="text-center">Колличество</th>
-                                <th scope="col" class="text-center">Удалить</th>
-                                <th scope="col" class="text-center">Цена</th>
-                                <th scope="col" class="text-center">Всего</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for item in cart %}
-                                {% with product=item.product %}
-                                    <tr id="tr{{ product.id }}">
-                                        <td class="text-center">
-                                            <img class="img-fluid" src="{{ product.foto.url }}">
-                                        </td>
-                                        <td class="text-center">name</td>
-                                        <td class="text-center">{{ item.quantity }}</td>
-                                        <td class="text-center"><a type="button" name="remove-{{ product.id }}"><i class="fas fa-trash"></i></a></td>
-                                        <td class="text-center">{{ item.price }} BYN</td>
-                                        <td class="text-center">{{ item.total_price }} BYN</td>
-                                    </tr>
-                                {% endwith %}
-                            {% endfor %}
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th scope="col">Всего:</th>
-                                <th scope="col" colspan="2" id="tfoot-total">{{ cart.get_total_price }} BYN</th>
-                                <th scope="col" colspan="2"></th>
-                                <th scope="col"><button type="button" class="btn btn-primary">Primary</button></th>
-                            </tr>
-                        </tfoot>
-                    </table>
+                <h1 class="room-title" id="anchor4">корзина</h1>
+                <div class="flipcard">
+                    <div class="shopping-cart">
+                        <table class="table table-borderless">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="text-center">Фото</th>
+                                    <th scope="col" class="text-center">Название</th>
+                                    <th scope="col" class="text-center">Колличество</th>
+                                    <th scope="col" class="text-center">Удалить</th>
+                                    <th scope="col" class="text-center">Цена</th>
+                                    <th scope="col" class="text-center">Всего</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in cart %}
+                                    {% with product=item.product %}
+                                        <tr id="tr{{ product.id }}">
+                                            <td class="text-center">
+                                                <img class="img-fluid" src="{{ product.foto.url }}">
+                                            </td>
+                                            <td class="text-center">{{ item.name }}</td>
+                                            <td class="text-center">{{ item.quantity }}</td>
+                                            <td class="text-center"><a type="button" name="remove-{{ product.id }}"><i class="fas fa-trash"></i></a></td>
+                                            <td class="text-center">{{ item.price }} BYN</td>
+                                            <td class="text-center">{{ item.total_price }} BYN</td>
+                                        </tr>
+                                    {% endwith %}
+                                {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th scope="col">Всего:</th>
+                                    <th scope="col" colspan="2" id="tfoot-total">{{ cart.get_total_price }} BYN</th>
+                                    <th scope="col" colspan="2"></th>
+                                    <th scope="col"><button type="button" class="btn btn-primary">Primary</button></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="shopping-cart-back">
+                        <form>
+                            <div class="form-floating mb-3">
+                                <input required type="text" class="form-control" name="username"  id="floatingName" placeholder="name">
+                                <label for="floatingName">Ваше имя</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input required type="tel" class="form-control" name="phone" minlength="12" maxlength="20" id="floatingPhone" placeholder="phone">
+                                <label for="floatingPhone">Ваш номер телефона</label>
+                            </div>
+                            <button type="button" name="back" class="btn btn-secondary float-sm-start mb-3">back</button>
+                            <button type="submit" name="send" class="btn btn-success float-sm-end mb-3">Send</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="social-links">
+                <div class="social-links" id="anchor5">
                     <ul>
                       <li>
                         <a href="tel:+375257046972">
