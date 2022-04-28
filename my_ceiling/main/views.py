@@ -1,5 +1,5 @@
 from django.views.generic import ListView
-from .models import CorniceModel, LightModel, ProfileModel, CeilingModel
+from .models import Product
 from django.core.mail import EmailMessage
 from django.conf import settings
 
@@ -9,14 +9,18 @@ from .cart import Cart
 
 
 class HomeView(ListView):
-    model = CorniceModel
+    model = Product
     template_name = 'main/index.html'
-    context_object_name = 'cornice'
+    context_object_name = 'model'
     extra_context = {
         'title': 'MY CEILING',
-        'ceiling': CeilingModel.objects.all(),
-        'light': LightModel.objects.all(),
-        'profile': ProfileModel.objects.all(),
+        'cornice': model.objects.filter(category='cornice'),
+        'profile': model.objects.filter(category='profile'),
+        'chandelier': model.objects.filter(category='chandelier'),
+        'track_and_spot': model.objects.filter(category='track_and_spot'),
+        'ledlamp_and_point': model.objects.filter(category='ledlamp_and_point'),
+        'ledpanel': model.objects.filter(category='ledpanel'),
+        'led_strip_light': model.objects.filter(category='led_strip_light'),
     }
 
     def get(self, request, *args, **kwargs):
@@ -35,7 +39,7 @@ class HomeView(ListView):
         cart = Cart(request)
         product = None
         if 'product_id' in query_dict:
-            product = get_object_or_404(CeilingModel, id=int(query_dict.__getitem__('product_id')))
+            product = get_object_or_404(Product, id=int(query_dict.__getitem__('product_id')))
         if query_dict.__getitem__('name') == 'add':
             cart.add(product=product,
                      quantity=int(query_dict.__getitem__('quantity')),

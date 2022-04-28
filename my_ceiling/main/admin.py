@@ -1,17 +1,8 @@
 from django.contrib import admin
-from .models import CorniceModel, LightModel, ProfileModel
+from .models import Product
 
 
-@admin.register(CorniceModel)
-class CeilingAdmin(admin.ModelAdmin):
-    list_display = ('name', 'foto', 'price')
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('title', 'category', 'foto', 'price')
 
-
-@admin.register(LightModel)
-class CeilingAdmin(admin.ModelAdmin):
-    list_display = ('name', 'type_light', 'foto', 'price')
-
-
-@admin.register(ProfileModel)
-class CeilingAdmin(admin.ModelAdmin):
-    list_display = ('name', 'foto', 'price')

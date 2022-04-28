@@ -2,47 +2,30 @@ from django.db import models
 
 
 def path_foto(instance, filename):
-    return f"ceiling/foto/{instance.__class__.__name__.split('M')[0]}/{filename}"
+    return f"product/foto/{instance.category}/{filename}"
 
 
-class CeilingModel(models.Model):
-    name = models.CharField('Наименование', max_length=50, default='нет наименования')
-    foto = models.ImageField('Фото', upload_to=path_foto)
-    price = models.DecimalField('Цена', max_digits=8, decimal_places=2, default=0)
+class Product(models.Model):
+    title = models.CharField(max_length=50, default='нет наименования', verbose_name='Наименование')
+    foto = models.ImageField(upload_to=path_foto, verbose_name='Фото')
+    price = models.DecimalField(max_digits=8, decimal_places=2, default=0, verbose_name='Цена')
+    CATEGORIES = (
+        (None, 'Быберите тип'),
+        ('cornice', 'Карниз'),
+        ('profile', 'Профиль'),
+        ('Освещение', (
+            ('chandelier', 'люстры'),
+            ('track_and_spot', 'треки и споты'),
+            ('ledlamp_and_point', 'LED-светильники и точечные'),
+            ('ledpanel', 'LED-панели'),
+            ('led_strip_light', 'LED-ленты и комплектующие'),
+        ))
+    )
+    category = models.CharField(max_length=30, choices=CATEGORIES, verbose_name='Категория')
 
     def __str__(self):
-        return self.name
-
-
-class CorniceModel(CeilingModel):
+        return self.title
 
     class Meta:
-        verbose_name = 'Карниз'
-        verbose_name_plural = 'Карнизы'
-
-
-class LightModel(CeilingModel):
-    CHANDELIER = 'CH'
-    TRACK_AND_SPOT = 'TAS'
-    LEDLAMP_AND_POINT = 'LAP'
-    LEDPANEL = 'LP'
-    LED_STRIP_LIGHT = 'LSL'
-    TYPE_IN_LIGHT_CHOICES = [
-        ('CHANDELIER', 'люстры'),
-        ('TRACK_AND_SPOT', 'треки и споты'),
-        ('LEDLAMP_AND_POINT', 'LED-светильники и точечные'),
-        ('LEDPANEL', 'LED-панели'),
-        ('LED_STRIP_LIGHT', 'LED-ленты и комплектующие'),
-    ]
-    type_light = models.CharField('Тип', max_length=30, choices=TYPE_IN_LIGHT_CHOICES, default=CHANDELIER)
-
-    class Meta:
-        verbose_name = 'Освещение'
-        verbose_name_plural = 'Освещение'
-
-
-class ProfileModel(CeilingModel):
-
-    class Meta:
-        verbose_name = 'Профиль'
-        verbose_name_plural = 'Профиля'
+        verbose_name_plural = 'Товары'
+        verbose_name = 'Товар'

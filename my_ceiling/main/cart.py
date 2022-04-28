@@ -1,6 +1,6 @@
 from decimal import Decimal
 from django.conf import settings
-from .models import CeilingModel
+from .models import Product
 
 
 class Cart(object):
@@ -18,7 +18,7 @@ class Cart(object):
         """
         product_id = str(product.id)
         if product_id not in self.cart:
-            self.cart[product_id] = {'name': product.name,
+            self.cart[product_id] = {'name': product.title,
                                      'quantity': 0,
                                      'price': str(product.price)}
         if update_quantity:
@@ -48,7 +48,7 @@ class Cart(object):
         """
         product_ids = self.cart.keys()
         # получение объектов product и добавление их в корзину
-        products = CeilingModel.objects.filter(id__in=product_ids)
+        products = Product.objects.filter(id__in=product_ids)
         for product in products:
             self.cart[str(product.id)]['product'] = product
 

@@ -4,7 +4,6 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-    <!--suppress XmlDuplicatedId -->
     <main class="building">
         <section class="room">
             <div class="room-walls container-fluid">
@@ -103,29 +102,27 @@
                 </div>
                 <div class="carousel carousel-dark" id="tab1">
                     <figure>
-                        {% for el in light %}
-                            {% if el.type_light == 'CHANDELIER' %}
-                                <div>
-                                    <label>
-                                        <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#chandelier{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
-                                        <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}" alt=""/>
-                                        <div class="it-ok" id="it-ok{{ el.id }}">
-                                            <svg viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M 18 32.34 l -8.34 -8.34 -2.83 2.83 11.17 11.17 24 -24 -2.83 -2.83 z" stroke="#3da35a" fill="transparent"/>
-                                            </svg>
-                                        </div>
-                                    </label>
-                                    <div class="collapse" id="chandelier{{ el.id }}">
-                                        <div class="input-group input-group-sm mt-2">
-                                            <span class="input-group-text">штук</span>
-                                            <input type="number" class="form-control text-center" name="clg-{{ el.id }}" min="1" max="100" value="1">
-                                            <span class="input-group-text" id="clg-out{{ el.id }}">{{ el.price }} BYN</span>
-                                            <button class="btn btn-success" type="button" name="add-{{ el.id }}">add to card</button>
-                                        </div>
+                        {% for el in chandelier %}
+                            <div>
+                                <label>
+                                    <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#chandelier{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
+                                    <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}" alt=""/>
+                                    <div class="it-ok" id="it-ok{{ el.id }}">
+                                        <svg viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M 18 32.34 l -8.34 -8.34 -2.83 2.83 11.17 11.17 24 -24 -2.83 -2.83 z" stroke="#3da35a" fill="transparent"/>
+                                        </svg>
                                     </div>
-                                    <hr>
+                                </label>
+                                <div class="collapse" id="chandelier{{ el.id }}">
+                                    <div class="input-group input-group-sm mt-2">
+                                        <span class="input-group-text">штук</span>
+                                        <input type="number" class="form-control text-center" name="clg-{{ el.id }}" min="1" max="100" value="1">
+                                        <span class="input-group-text" id="clg-out{{ el.id }}">{{ el.price }} BYN</span>
+                                        <button class="btn btn-success" type="button" name="add-{{ el.id }}">add to card</button>
+                                    </div>
                                 </div>
-                            {% endif %}
+                                <hr>
+                            </div>
                         {% endfor %}
                     </figure>
                     <nav>
@@ -141,29 +138,27 @@
                 </div>
                 <div class="carousel carousel-dark" id="tab2">
                     <figure>
-                        {% for el in light %}
-                            {% if el.type_light == 'TRACK_AND_SPOT' %}
-                                <div>
-                                    <label>
-                                        <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#track-and-spot{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
-                                        <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}" alt=""/>
-                                        <div class="it-ok" id="it-ok{{ el.id }}">
-                                            <svg viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M 18 32.34 l -8.34 -8.34 -2.83 2.83 11.17 11.17 24 -24 -2.83 -2.83 z" stroke="#3da35a" fill="transparent"/>
-                                            </svg>
-                                        </div>
-                                    </label>
-                                    <div class="collapse" id="track-and-spot{{ el.id }}">
-                                        <div class="input-group input-group-sm mt-2">
-                                            <span class="input-group-text">штук</span>
-                                            <input type="number" class="form-control text-center" name="clg-{{ el.id }}" min="1" max="100" value="1">
-                                            <span class="input-group-text" id="clg-out{{ el.id }}">{{ el.price }} BYN</span>
-                                            <button class="btn btn-success" type="button" name="add-{{ el.id }}">add to card</button>
-                                        </div>
+                        {% for el in track_and_spot %}
+                            <div>
+                                <label>
+                                    <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#track-and-spot{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
+                                    <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}" alt=""/>
+                                    <div class="it-ok" id="it-ok{{ el.id }}">
+                                        <svg viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M 18 32.34 l -8.34 -8.34 -2.83 2.83 11.17 11.17 24 -24 -2.83 -2.83 z" stroke="#3da35a" fill="transparent"/>
+                                        </svg>
                                     </div>
-                                    <hr>
+                                </label>
+                                <div class="collapse" id="track-and-spot{{ el.id }}">
+                                    <div class="input-group input-group-sm mt-2">
+                                        <span class="input-group-text">штук</span>
+                                        <input type="number" class="form-control text-center" name="clg-{{ el.id }}" min="1" max="100" value="1">
+                                        <span class="input-group-text" id="clg-out{{ el.id }}">{{ el.price }} BYN</span>
+                                        <button class="btn btn-success" type="button" name="add-{{ el.id }}">add to card</button>
+                                    </div>
                                 </div>
-                            {% endif %}
+                                <hr>
+                            </div>
                         {% endfor %}
                     </figure>
                     <nav>
@@ -179,29 +174,27 @@
                 </div>
                 <div class="carousel carousel-dark" id="tab3">
                     <figure>
-                        {% for el in light %}
-                            {% if el.type_light == 'LEDLAMP_AND_POINT' %}
-                                <div>
-                                    <label>
-                                        <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#ledlamp-and-point{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
-                                        <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}" alt=""/>
-                                        <div class="it-ok" id="it-ok{{ el.id }}">
-                                            <svg viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M 18 32.34 l -8.34 -8.34 -2.83 2.83 11.17 11.17 24 -24 -2.83 -2.83 z" stroke="#3da35a" fill="transparent"/>
-                                            </svg>
-                                        </div>
-                                    </label>
-                                    <div class="collapse" id="ledlamp-and-point{{ el.id }}">
-                                        <div class="input-group input-group-sm mt-2">
-                                            <span class="input-group-text">штук</span>
-                                            <input type="number" class="form-control text-center" name="clg-{{ el.id }}" min="1" max="100" value="1">
-                                            <span class="input-group-text" id="clg-out{{ el.id }}">{{ el.price }} BYN</span>
-                                            <button class="btn btn-success" type="button" name="add-{{ el.id }}">add to card</button>
-                                        </div>
+                        {% for el in ledlamp_and_point %}
+                            <div>
+                                <label>
+                                    <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#ledlamp-and-point{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
+                                    <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}" alt=""/>
+                                    <div class="it-ok" id="it-ok{{ el.id }}">
+                                        <svg viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M 18 32.34 l -8.34 -8.34 -2.83 2.83 11.17 11.17 24 -24 -2.83 -2.83 z" stroke="#3da35a" fill="transparent"/>
+                                        </svg>
                                     </div>
-                                    <hr>
+                                </label>
+                                <div class="collapse" id="ledlamp-and-point{{ el.id }}">
+                                    <div class="input-group input-group-sm mt-2">
+                                        <span class="input-group-text">штук</span>
+                                        <input type="number" class="form-control text-center" name="clg-{{ el.id }}" min="1" max="100" value="1">
+                                        <span class="input-group-text" id="clg-out{{ el.id }}">{{ el.price }} BYN</span>
+                                        <button class="btn btn-success" type="button" name="add-{{ el.id }}">add to card</button>
+                                    </div>
                                 </div>
-                            {% endif %}
+                                <hr>
+                            </div>
                         {% endfor %}
                     </figure>
                     <nav>
@@ -217,29 +210,27 @@
                 </div>
                 <div class="carousel carousel-dark" id="tab4">
                     <figure>
-                        {% for el in light %}
-                            {% if el.type_light == 'LEDPANEL' %}
-                                <div>
-                                    <label>
-                                        <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#ledpanel{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
-                                        <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}" alt=""/>
-                                        <div class="it-ok" id="it-ok{{ el.id }}">
-                                            <svg viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M 18 32.34 l -8.34 -8.34 -2.83 2.83 11.17 11.17 24 -24 -2.83 -2.83 z" stroke="#3da35a" fill="transparent"/>
-                                            </svg>
-                                        </div>
-                                    </label>
-                                    <div class="collapse" id="ledpanel{{ el.id }}">
-                                        <div class="input-group input-group-sm mt-2">
-                                            <span class="input-group-text">штук</span>
-                                            <input type="number" class="form-control text-center" name="clg-{{ el.id }}" min="1" max="100" value="1">
-                                            <span class="input-group-text" id="clg-out{{ el.id }}">{{ el.price }} BYN</span>
-                                            <button class="btn btn-success" type="button" name="add-{{ el.id }}">add to card</button>
-                                        </div>
+                        {% for el in ledpanel %}
+                            <div>
+                                <label>
+                                    <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#ledpanel{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
+                                    <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}" alt=""/>
+                                    <div class="it-ok" id="it-ok{{ el.id }}">
+                                        <svg viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M 18 32.34 l -8.34 -8.34 -2.83 2.83 11.17 11.17 24 -24 -2.83 -2.83 z" stroke="#3da35a" fill="transparent"/>
+                                        </svg>
                                     </div>
-                                    <hr>
+                                </label>
+                                <div class="collapse" id="ledpanel{{ el.id }}">
+                                    <div class="input-group input-group-sm mt-2">
+                                        <span class="input-group-text">штук</span>
+                                        <input type="number" class="form-control text-center" name="clg-{{ el.id }}" min="1" max="100" value="1">
+                                        <span class="input-group-text" id="clg-out{{ el.id }}">{{ el.price }} BYN</span>
+                                        <button class="btn btn-success" type="button" name="add-{{ el.id }}">add to card</button>
+                                    </div>
                                 </div>
-                            {% endif %}
+                                <hr>
+                            </div>
                         {% endfor %}
                     </figure>
                     <nav>
@@ -255,29 +246,27 @@
                 </div>
                 <div class="carousel carousel-dark" id="tab5">
                     <figure>
-                        {% for el in light %}
-                            {% if el.type_light == 'LED_STRIP_LIGHT' %}
-                                <div>
-                                    <label>
-                                        <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#led-strip-light{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
-                                        <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}" alt=""/>
-                                        <div class="it-ok" id="it-ok{{ el.id }}">
-                                            <svg viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M 18 32.34 l -8.34 -8.34 -2.83 2.83 11.17 11.17 24 -24 -2.83 -2.83 z" stroke="#3da35a" fill="transparent"/>
-                                            </svg>
-                                        </div>
-                                    </label>
-                                    <div class="collapse" id="led-strip-light{{ el.id }}">
-                                        <div class="input-group input-group-sm mt-2">
-                                            <span class="input-group-text">штук</span>
-                                            <input type="number" class="form-control text-center" name="clg-{{ el.id }}" min="1" max="100" value="1">
-                                            <span class="input-group-text" id="clg-out{{ el.id }}">{{ el.price }} BYN</span>
-                                            <button class="btn btn-success" type="button" name="add-{{ el.id }}">add to card</button>
-                                        </div>
+                        {% for el in led_strip_light %}
+                            <div>
+                                <label>
+                                    <input type="checkbox" data-bs-toggle="collapse" data-bs-target="#led-strip-light{{ el.id }}" aria-expanded="false" name="box-{{ el.id }}" value="{{ el.price }}">
+                                    <img class="img-fluid" name="img-{{ el.id }}" src="{{ el.foto.url }}" alt=""/>
+                                    <div class="it-ok" id="it-ok{{ el.id }}">
+                                        <svg viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M 18 32.34 l -8.34 -8.34 -2.83 2.83 11.17 11.17 24 -24 -2.83 -2.83 z" stroke="#3da35a" fill="transparent"/>
+                                        </svg>
                                     </div>
-                                    <hr>
+                                </label>
+                                <div class="collapse" id="led-strip-light{{ el.id }}">
+                                    <div class="input-group input-group-sm mt-2">
+                                        <span class="input-group-text">штук</span>
+                                        <input type="number" class="form-control text-center" name="clg-{{ el.id }}" min="1" max="100" value="1">
+                                        <span class="input-group-text" id="clg-out{{ el.id }}">{{ el.price }} BYN</span>
+                                        <button class="btn btn-success" type="button" name="add-{{ el.id }}">add to card</button>
+                                    </div>
                                 </div>
-                            {% endif %}
+                                <hr>
+                            </div>
                         {% endfor %}
                     </figure>
                     <nav>
